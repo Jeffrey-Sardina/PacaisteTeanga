@@ -35,13 +35,13 @@ namespace PacáisteTeanga
         /// <summary>
         /// Déanann sé seo Pacáiste nua chun an comhad teanga atá aimsithe
         /// </summary>
-        /// <param name="comhad">
+        /// <param name="ainmAnChomhaid">
         /// An comhad lena teangacha i bhformáid ceart (féach an tuarscáil atá suas ag barr an comhad)
         /// </param>
-	    public Pacáiste(string comhad)
+	    public Pacáiste(string ainmAnChomhaid)
         {
             nascaireacht = new Dictionary<int, string>();
-            ComhadALódáil(comhad);
+            ComhadALódáil(ainmAnChomhaid);
         }
 
         /// <summary>
@@ -50,15 +50,15 @@ namespace PacáisteTeanga
         /// <param name="comhad">
         /// An comhad leis an teanga i bhformáid .csv
         /// </param>
-        void ComhadALódáil(string comhad)
+        void ComhadALódáil(string ainmAnChomhaid)
         {
             //anim na teanga (gan an fadú .csv)
-            Teanga = comhad.Split('.')[0];
+            Teanga = ainmAnChomhaid.Split('.')[0];
 
             //Lódáil gach frása i nascaireachtTeangacha
             try
             {
-                foreach (string líne in File.ReadLines(comhad))
+                foreach (string líne in File.ReadLines(ainmAnChomhaid))
                 {
                     //Tá dhá phíosa eolais sa líne: an cód agus an frása
                     string[] eolas = líne.Split(',');
@@ -81,10 +81,10 @@ namespace PacáisteTeanga
         /// <param name="comhad">
         /// An comhad leis an teanga i bhformáid .csv
         /// </param>
-        public void TeangaAAthrú(string comhad)
+        public void TeangaAAthrú(string ainmAnChomhaid)
         {
             nascaireacht.Clear();
-            ComhadALódáil(comhad);
+            ComhadALódáil(ainmAnChomhaid);
         }
 
         /// <summary>
