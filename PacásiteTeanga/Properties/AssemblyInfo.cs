@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("PacáisteTeanga")]
+[assembly: AssemblyTitle("PacásiteTeanga")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PacáisteTeanga")]
+[assembly: AssemblyProduct("PacásiteTeanga")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("d07f6ecc-2e28-427b-b258-e0e2a50da9eb")]
+[assembly: Guid("c4178855-6f4e-4c56-b7cd-10d334d2d14e")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
@@ -29,8 +29,8 @@ using System.Runtime.InteropServices;
 //      Número de compilación
 //      Revisión
 //
-// Puede especificar todos los valores o utilizar los números de compilación y de revisión predeterminados
-// mediante el carácter '*', como se muestra a continuación:
+// Puede especificar todos los valores o usar los números de compilación y de revisión predeterminados
+// mediante el carácter "*", como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

@@ -23,9 +23,11 @@ namespace PacáisteTeanga
     /// <summary>
     /// Seo é an cód a lódáileann comhaid teanga ón ríomhaire.
     /// </summary>
-    public class Pacáiste
+    public class RialaitheoirTeanga
     {
-        readonly Dictionary<int, string> nascaireacht;
+        readonly Dictionary<int, string> nascaireachtIdirCóduimhirAgusFrása;
+        readonly LinkedList<Tuple<Delegate, int>> naicaireachtIdirModhAgusFrása;
+
         public string Teanga
         {
             get;
@@ -38,9 +40,10 @@ namespace PacáisteTeanga
         /// <param name="ainmAnChomhaid">
         /// An comhad lena teangacha i bhformáid ceart (féach an tuarscáil atá suas ag barr an comhad)
         /// </param>
-	    public Pacáiste(string ainmAnChomhaid)
+        public RialaitheoirTeanga(string ainmAnChomhaid)
         {
-            nascaireacht = new Dictionary<int, string>();
+            nascaireachtIdirCóduimhirAgusFrása = new Dictionary<int, string>();
+            naicaireachtIdirModhAgusFrása = new LinkedList<Tuple<Delegate, int>>();
             ComhadALódáil(ainmAnChomhaid);
         }
 
@@ -66,7 +69,7 @@ namespace PacáisteTeanga
                     //Tá eolas[0] an cód agus eolas[1] an frása
                     int cód = Int32.Parse(eolas[0]);
                     string frása = eolas[1];
-                    nascaireacht.Add(cód, frása);
+                    nascaireachtIdirCóduimhirAgusFrása.Add(cód, frása);
                 }
             }
             catch (IndexOutOfRangeException ex)
@@ -76,15 +79,24 @@ namespace PacáisteTeanga
         }
 
         /// <summary>
-        /// Athraíonn sé seo an teanga ar fáil
+        /// Athraíonn sé seo an teanga ar fáil.
         /// </summary>
         /// <param name="comhad">
         /// An comhad leis an teanga i bhformáid .csv
         /// </param>
         public void TeangaAAthrú(string ainmAnChomhaid)
         {
-            nascaireacht.Clear();
+            nascaireachtIdirCóduimhirAgusFrása.Clear();
             ComhadALódáil(ainmAnChomhaid);
+            NuaShonraigh();
+        }
+
+        void NuaShonraigh()
+        {
+            foreach (Tuple<Delegate, int> ball in naicaireachtIdirModhAgusFrása)
+            {
+                ball.Item1.DynamicInvoke(FrásaAFháil(ball.Item2));
+            }
         }
 
         /// <summary>
@@ -94,10 +106,31 @@ namespace PacáisteTeanga
         /// <returns>
         /// Frása leis an cód seo, nó "null" mura bhfuil aon frása aimsithe
         /// </returns>
-        public string FrásaAFháil(int cód)
+        string FrásaAFháil(int cód)
         {
-            nascaireacht.TryGetValue(cód, out string frása);
+            nascaireachtIdirCóduimhirAgusFrása.TryGetValue(cód, out string frása);
             return frása;
+        }
+
+        /// <summary>
+        /// Caitheann tú an modh seo a úsáid nuair atá modh agat a scríobhann téacs chun an úsáideoir. Nascann sé an modh seo leis 
+        /// an frása atá nasctha leis an códuimhir seo. Nuair a athraíonn an teanga, beidh a Pacásite in ann gach ball sa taispeántas
+        /// a nua-shonraigh leis na frásaí nua gan aon obair ar bith ón cód eile.
+        /// 
+        /// Má tá "Property" agat, úsáid Action chun modh a dhéanamh ar nós:
+        ///     Action<string> modh = new Action<string>((string x) => Rud.Property = x);
+        /// </summary>
+        /// <param name="modh">
+        /// An modh a rialaíonn an taispeántas téacs
+        /// </param>
+        /// <param name="códuimhir">
+        /// Códuimhir nasctha leis an frása a taispeánt
+        /// </param>
+        /// <returns></returns>
+        public void ModhAChurLeis(Delegate modh, int códuimhir)
+        {
+            naicaireachtIdirModhAgusFrása.AddFirst(new Tuple<Delegate, int>(modh, códuimhir));
+            modh.DynamicInvoke(FrásaAFháil(códuimhir));
         }
     }
 }
