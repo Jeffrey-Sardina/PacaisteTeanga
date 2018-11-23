@@ -6,9 +6,9 @@ Tá mé ag scríobh an pácaiste seo As Gaeilge amháin. Is aobhinn liom an Ghae
 De gnáth, tá anfeidhm simplí: Pacáiste teanga a úsáid ar nós níos éasca i bhfeidhmchlár 
 
 Tá cúpla feidhmeanna ag an Pacáiste se faoi leith:
-    * Comhaid teanga a lódáil go éasca
-    * Frásaí céanna i dteangacha éagsúla a naisc le códuimhir céanna
-    * Teangacha a athrú go tapaidh, agus iad a theaispeáint go láithreach ina dhiaidh sin
+* Comhaid teanga a lódáil go éasca
+* Frásaí céanna i dteangacha éagsúla a naisc le códuimhir céanna
+* Teangacha a athrú go tapaidh, agus iad a theaispeáint go láithreach ina dhiaidh sin
 
 Tá cead saor agat an pacáiste seo a úsáid, ach luaigh mé féin le do thiol.
 
@@ -24,9 +24,9 @@ I am writing this package in Irish. I'm doing it because I love Irish and I'd li
 Generally, the goal of this package is simple: to use language packs more easily in applications.
 
 Specifically, the package has a few functions:
-    * To load language files
-    * To link the same phrases in different languages together from language file data
-    * To quickly change languages and to display the changes immediately
+* To load language files
+* To link the same phrases in different languages together from language file data
+* To quickly change languages and to display the changes immediately
 
 You may use this package freely, but please give me credit.
 
