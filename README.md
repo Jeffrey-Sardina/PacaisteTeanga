@@ -5,7 +5,7 @@ Tá mé ag scríobh an pácaiste seo As Gaeilge amháin. Is aobhinn liom an Ghae
 
 De gnáth, tá anfeidhm simplí: Pacáiste teanga a úsáid ar nós níos éasca i bhfeidhmchlár 
 
-Tá cúpla feidhmeanna ag an Pacáiste se faoi leith:
+Tá cúpla feidhmeanna ag an Pacáiste seo anois:
 * Comhaid teanga a lódáil go éasca
 * Frásaí céanna i dteangacha éagsúla a naisc le códuimhir céanna
 * Teangacha a athrú go tapaidh, agus iad a theaispeáint go láithreach ina dhiaidh sin
